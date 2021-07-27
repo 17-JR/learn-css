@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>table表格</title>
+    <link rel="stylesheet" href="../10.layUI/css/layui.css" >
+    <script src="layui.js"></script>
+</head>
+<body>
+    <table id="table" lay-filter="test">
+
+    </table>
+<script>
+<!--    引入模块-->
+    layui.use(['table','layer'],function () {
+
+        var table=layui.table;
+        var layer=layui.layer;
+    //实例化le
+        table.render(({
+            //绑定属性ID
+            elem:"#table",
+            //数据接口
+            url:"uer.json",
+            //开启分页
+            page: true,
+            height:300,
+        //工具栏
+            //    默认样式
+            //toolbar:true,
+            //    自定义
+            toolbar:"#toolbar",
+        //每页数量
+            limit:5,
+            limits:[5,8,10],
+        //    加载数据
+        cols:[[
+                {field:'num',type:"numbers"},
+                {field:'check',type:"checkbox"},
+                {field:'id',title:'用户编号',sort:true,width:120,hide:true},
+                {field:'username',title:'用户名',width:120},
+                {field:'sex',title:'性别',width:120},
+                {field:'city',title:'城市',width:120},
+                {field:'sign',title:'签名',width:120},
+            // 设置表头工具栏
+                {field: 'play',title:'操作',toolbar:"#bardemo"}
+            ]]
+        }));
+        //头监听事件
+        //    语法：table.on('toolbar(demo)', function(obj) {})
+        //  demo:容器上的lay-filter
+        table.on('toolbar(test)', function(obj) {
+            // console.log(obj)
+            //obj.config对象中可以获取ID属性值，即表示当前容器的ID属性值，
+            // console.log(obj.config.id)
+            //获取表格中被选中的对象
+            var checkStatus = table.checkStatus(obj.config.id);
+            // console.log(checkStatus.data);
+            // console.log(checkStatus.data.length);
+            //获取事件名
+            var eventName=obj.event;
+            // 获取被选中的记录的数组
+            // console.log(eventName);
+            // layer.msg("功能触发")
+            // 判断事件名
+            switch (eventName) {
+                case "get-h":
+                    //解析数组
+                    // console.log(checkStatus.data)
+                    layer.msg(JSON.stringify(checkStatus.data))
+                    break;
+                case "get-l":
+                    // console.log("get-l")
+                   layer.msg(checkStatus.data.length);
+                    break;
+                case "check-all":
+                    if(checkStatus.isAll){
+                        layer.msg("已全选")
+                    }else{
+                        layer.msg("未全选")
+                    }
+                    break;
+                default:
+                    break;
+            }
+        })
+    //    监听行工具栏
+        table.on("tool(test)",function (obj) {
+            //得到当前对象的相关信息
+            let tr=obj.data;
+        //    得到事件名
+            let eventName=obj.event;
+        //    判断事件
+            switch (eventName) {
+                case "delete":
+                    layer.confirm("您确认删除该信息吗",function (index) {
+                    //    删除指定内容
+                        obj.del();
+                    //    关闭当前弹出层
+                        layer.close();
+                    });
+                    break;
+                case "update":
+                    //输出框
+                    layer.prompt({
+                        //表单元素类型 0 文本框 1 密码框  2 文本域
+                        formType:0,
+                        //设置输入框的值
+                        title:"用户名",
+                        value:tr.username,
+
+                    },function (value,index) {
+                    //    修改单元格的值
+
+                    })
+
+                    break;
+
+            }
+        })
+
+    })
+
+</script>
+<script id="toolbar" type="text/html">
+    <div class="layui-btn-container">
+        <button class="layui-btn layui-btn-sm" lay-event="get-h">
+            获取选中行数据
+        </button>
+        <button class="layui-btn layui-btn-sm" lay-event="get-l">
+            获取选中列数据
+        </button>
+        <button class="layui-btn layui-btn-sm" lay-event="check-all">
+            验证是否全选
+        </button>
+    </div>
+</script>
+<script type="text/html" id="bardemo">
+<!--    <a class="layui-btn layui-btn-xs">编辑</a>-->
+<!--    <a class="layui-btn layui-btn-xs layui-btn-danger">删除</a>-->
+    <div class="layui-btn-container">
+<!--        <button class="layui-btn layui-btn-sm" lay-event="add">添加</button>-->
+        <button class="layui-btn layui-btn-sm" lay-event="delete">删除</button>
+        <button class="layui-btn layui-btn-sm" lay-event="update">编辑</button>
+    </div>
+</script>
+</body>
+</html>

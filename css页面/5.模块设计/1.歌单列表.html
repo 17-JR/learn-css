@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>歌单列表</title>
+    <link rel="stylesheet" type="text/css" href="iconfont.css">
+    <style>
+        body{
+            margin: 0;
+            border: 0;
+        }
+        header,article{
+            width: 800px;
+            margin: 0 auto;
+            font-size: 14px;
+
+        }
+
+        header div {
+            font-weight: bold;
+            font-size: 40px;
+            color: #444444;
+            margin-bottom: 10px;
+        }
+        header div span{
+            font-size: 16px;
+           /* 让span元素在div中居中*/
+           display: inline-block;
+            vertical-align: middle;
+            margin-left: 15px;
+        }
+
+        .header-nav a{
+            font-size: 16px;
+            padding: 10px;
+            text-decoration: none;
+            color: black;
+            background-color: #eeeeee;
+            border-radius: 20px;
+            width: 150px;
+            margin-right: 10px;
+        }
+        article{
+            margin-top: 20px;
+        }
+        article table{
+            width: 90%;
+        }
+        nav {
+            display: flex;
+        }
+        nav a:nth-child(1){
+            width: 180px;
+            background-color: #ffff00;
+            border-radius: 20px;
+        }
+        article table tr:nth-child(even){
+            background-color: #999999;
+        }
+        article table tr:first-child {
+            color: #2ebb96;
+        }
+        table tr td{
+            padding: 10px  0;
+            text-align: center;
+        }
+        table tr td:nth-child(2){
+            width: 40%;
+            text-align: left;
+        }
+        table tr td img{
+            width: 20px;
+            height: 20px;
+            vertical-align: middle;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            酷我排行榜<span>更新时间：<span id="time"></span></span>
+        </div>
+            <nav class="header-nav">
+                    <a href="#"><i class="iconfont icon-play"></i>播放全部</a>
+
+                    <a href="#"><i class="iconfont icon-add"></i>添加</a>
+
+                    <a href="#"> <i class="iconfont icon-collection"></i>收藏</a>
+
+                    <a href="#"><i class="iconfont icon-message"></i>评论</a>
+            </nav>
+
+    </header>
+    <article>
+        <table cellspacing="0" cellpadding="5" >
+            <tr>
+                <td>序号</td>
+                <td>歌曲</td>
+                <td>歌手</td>
+                <td>专辑</td>
+                <td>时长</td>
+            </tr>
+            <tr>
+                <td>序号</td>
+                <td><img src="">歌曲</td>
+                <td>歌手</td>
+                <td>专辑</td>
+                <td>时长</td>
+            </tr>
+            <tr>
+                <td>序号</td>
+                <td><img src="图1.webp">歌曲</td>
+                <td>歌手</td>
+                <td>专辑</td>
+                <td>时长</td>
+            </tr>
+            <tr>
+                <td>序号</td>
+                <td><img src="图1.webp">歌曲</td>
+                <td>歌手</td>
+                <td>专辑</td>
+                <td>时长</td>
+            </tr>
+        </table>
+    </article>
+    <footer></footer>
+<script>
+   var date = new Date();
+   var time=date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate()
+   document.getElementById('time').innerText=time;
+</script>
+</body>
+</html>

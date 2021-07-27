@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>单击切换图片</title>
+
+    <style>
+        .picture{
+            width: 550px;
+            margin: 0 auto;
+            background-color: red;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .picture .image{
+            width: 550px;
+            text-align: center;
+        }
+        .picture>div{
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="picture">
+        <div>
+            <label><input type="radio" name="r1" checked="checked" value="1" onclick="listen_button()">李白</label>
+            <label><input type="radio" name="r1"  value="2" onclick="listen_button()">韩信</label>
+            <label><input type="radio" name="r1" value="3" onclick="listen_button()">百里守约</label>
+        </div>
+        <div class="image">
+            <img id="p1" src="李白.webp">
+        </div>
+    </div>
+<script>
+    let image=["李白.webp","韩信.webp","百里守约.webp"];
+    // alert(image[0]);
+    function changImg(x){
+        document.getElementById('p1').src=x;
+    }
+    function listen_button() {
+        // 获取按钮集合
+        let btn=document.getElementsByTagName("input");
+        // console.log(btn[1].checked)
+        //判断点击了哪一个按钮
+        for(let i=0,l=btn.length;i<l;i++){
+            if(btn[i].checked){
+                changImg(image[i]);
+            }
+        }
+    }
+
+</script>
+</body>
+</html>

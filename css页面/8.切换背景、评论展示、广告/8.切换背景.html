@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>切换背景、评论展示、广告</title>
+<!--    <link rel="stylesheet" type="text/css" href="iconfont.css">-->
+    <style>
+        .model{
+            width: 800px;
+            margin: 0 auto;
+            background-color: #aaaaaa;
+            border: 1px #000000 solid;
+            display: flex;
+        }
+        .model .left{
+            width: 500px;
+            border-right: 1px #000000 solid ;
+            padding: 20px 0;
+            /*弹性盒子*/
+            display: flex;
+            /*均匀分布*/
+            justify-content:space-around;
+        }
+        /*三个按钮样式*/
+        .model .left .button div{
+            width: 20px;
+            height: 37px;
+            border: 1px #000000 solid;
+            margin-bottom: 5px;
+            border-radius: 2px;
+        }
+        /*三个按钮分别对应的背景*/
+        .model .left .button div:nth-child(1){
+            background: url("1.jpeg") 0 0/30px 55px;
+        }
+        .model .left .button div:nth-child(2){
+            background: url("2.jpeg") 0 0/30px 55px;
+        }
+        .model .left .button div:nth-child(3){
+            background: url("3.jpeg") 0 0/30px 55px;
+        }
+        /*背景展示*/
+        .model .left .show{
+            width: 300px;
+            height: 550px;
+            background: url("1.jpeg") 0 0/300px 550px;
+            border-radius: 10px;
+            border: 10px solid  #000000;
+            position: relative;
+        }
+        /*时间*/
+        .model .left .show span{
+            font-size: 40px;
+            color: white;
+            position: absolute;
+            left: 40px;
+            top: 60px;
+        }
+        /*填充弹性布局的剩余部分*/
+        .model .right{
+            flex: auto;
+            background-color: #03b6fd;
+            display: flex;
+            flex-direction: column;
+            /*设置分布方式：从底部开始*/
+            justify-content: flex-end;
+        }
+        /*高度填充*/
+        .model .right .top{
+            flex:auto;
+        }
+        .model .right .bottom{
+            width: 100%;
+            height: 30px;
+            border-top: 1px #000000 solid;
+            text-align: center;
+        }
+        .model .right .bottom input{
+            margin-top: 2px;
+            display: inline-block;
+        }
+        .model .right .bottom input:nth-child(1){
+            width: 70%;
+            height: 20px;
+        }
+        .model .right .bottom input:nth-child(2):hover{
+            background-color: #03b6fd;
+        }
+        /*广告定位*/
+        .gg{
+            width: 200px;
+            position: fixed;
+            bottom: 40px;
+            right: 2px;
+        }
+        .gg a{
+            display: block;
+            width: 200px;
+            height: 200px;
+            position: relative;
+        }
+        .gg img{
+            width: 200px;
+            height: 200px;
+        }
+        /*X号的位置和形状*/
+        .gg span{
+            position: absolute;
+            right: 10px;
+            top:10px;
+            width: 16px;
+            height: 16px;
+            line-height: 16px;
+            text-align: center;
+            border: 1px #666666 solid;
+            border-radius: 50%;
+            /*设置为指针*/
+            cursor: default;
+        }
+    </style>
+</head>
+<body>
+    <div class="model">
+        <div class="left">
+            <div class="button">
+                <div onclick="change_show('1.jpeg')"></div>
+                <div onclick="change_show('2.jpeg')"></div>
+                <div onclick="change_show('3.jpeg')"></div>
+            </div>
+            <div>
+                <div id="show" class="show"><span>11:30</span></div>
+            </div>
+        </div>
+        <div class="right">
+            <div class="top" >
+                <ul id="show_text">
+
+                </ul>
+            </div>
+            <div class="bottom">
+                <input id="text" type="text">
+                <input type="button" value="评论" onclick="add()">
+            </div>
+        </div>
+    </div>
+    <div class="gg" id="gg">
+        <div><a><img src="招财猫.webp"><span onclick="detele()">×</span></a></div>
+    </div>
+    <script>
+        function change_show(x) {
+            console.log('功能触发');
+            document.getElementById("show").style.backgroundImage="url("+x+")";
+        }
+        function add() {
+            let text =document.getElementById("text").value;
+            document.getElementById("show_text").innerHTML+="<li>"+text+"</li>";
+        }
+        //文本框获得焦点刷新文本框
+        let text =document.getElementById("text");
+        text.onfocus=function () {
+            console.log("功能触发");
+            text.value="";
+        }
+        function detele() {
+            document.getElementById("gg").style.display="none";
+        }
+    </script>
+</body>
+</html>

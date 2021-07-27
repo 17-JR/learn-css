@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>简易商城</title>
+    <link rel="stylesheet" type="text/css" href="iconfont.css">
+    <style>
+<!--        初始化-->
+        body{
+            margin: 0;
+            border: 0;
+            font-size: 16px;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        header,article{
+            width: 800px;
+            margin: 0 auto;
+        }
+        header .top{
+            /*弹性盒子*/
+            display: flex;
+        /*   内容两边对齐*/
+            justify-content: space-between;
+        }
+        /*左侧样式*/
+        header .top .left a{
+            display: block;
+        }
+        header .top .left  img{
+            width: 100px;
+            height: 100px;
+            border-radius: 10px;
+            box-shadow: 5px 3px 5px #aaaaaa;
+        }
+
+        /*右侧样式*/
+        header .top .right{
+            /*行间距*/
+            line-height: 2.5em;
+            /*垂直居中*/
+            text-align: center;
+        /*    水平居中*/
+             /*    弹性*/
+            display: flex;
+            /*将排列修改为垂直*/
+            flex-direction: column;
+            /*居中*/
+            justify-content: center;
+
+        }
+        /*数字样式*/
+        .shop-num{
+            width: 16px;
+            height: 16px;
+            /*居中*/
+            line-height: 16px;
+            background-color: red;
+            /*圆形*/
+            display: inline-block;
+            border-radius: 50%;
+            color: white;
+            font-size: 10px;
+            position: relative;
+            top:-8px;
+            left: -8px;
+        }
+        header .bottom nav{
+            width: 100%;
+            height: 40px;
+            color: white;
+            background-color: cadetblue;
+            display: flex;
+            text-align: center;
+            line-height: 40px;
+            position: relative;
+            box-shadow: 5px 5px 5px #2ebb96;
+        }
+        /*导航栏超链接样式*/
+        header .bottom nav a{
+            display: block;
+        }
+        header .bottom nav a:hover{
+            background-color: red;
+            color: white;
+        }
+        /**/
+        header .bottom nav div{
+            /*导航栏等分*/
+            flex: 1;
+        }
+
+    /*    去掉列表默认效果*/
+        header .bottom nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            background-color: #ddeef5;
+            display: none;
+            color: black;
+            /*显示级别*/
+            z-index: 40;
+            /*透明度*/
+            opacity: 0.7;
+        }
+        /*导航栏鼠标悬停，显示列表*/
+        header .bottom nav div:hover ul{
+            display: block;
+        }
+        article fieldset{
+            width: 700px;
+            margin: 40px auto 0 auto;
+
+        }
+        article fieldset legend{
+            text-align: center;
+        }
+        article fieldset div{
+            /*横向，居中*/
+            display: flex;
+            justify-content: center;
+
+        }
+        article fieldset div div{
+            margin: 2px;
+        }
+        article fieldset img{
+            width: 150px;
+            height: 150px;
+        }
+        /*专卖店超链接*/
+        .f-a{
+            justify-content: flex-end;
+            font-size: 13px;
+        }
+        .f-a a:hover{
+            color: red;
+        }
+        /**/
+        .f-d{
+            position: absolute;
+            display: none;
+        }
+        .f-d a{
+            background-color: #666666;
+            line-height: 150px;
+            text-align: center;
+            opacity: 0.5;
+            display: block;
+            width: 150px;
+            height: 150px;
+            color: white;
+        }
+        .f-p:hover .f-d{
+            display: block;
+        }
+    /*    停靠模块*/
+        .problem{
+            width: 30px;
+            background-color: #aaaaaa;
+            padding: 5px;
+            font-size: 14px;
+            text-align: center;
+            position: fixed;
+            right: 2px;
+            bottom: 20px;
+
+        }
+        .problem .top{
+            width: 16px;
+            height: 16px;
+            line-height: 16px;
+            text-align: center;
+            border: 1px #000000 solid;
+            border-radius: 50%;
+            margin: 0 auto 5px auto;
+        }
+        .problem .bottom a:hover{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="top">
+            <div class="left">
+                <div><a href="#"><img src="招财猫.webp"></a></div>
+            </div>
+            <div class="right">
+                <div>
+                    <div>Hi-欢迎<span>name</span></div>
+                    <div style=""><a href="#">购物车<i class="iconfont icon-addition"></i></a><span class="shop-num">5</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom">
+            <nav>
+                <div><a href="#">首页</a></div>
+                <div>
+                    <a href="#">家电</a>
+                    <ul>
+                        <li><a>电视</a></li>
+                        <li><a>洗衣机</a></li>
+                        <li><a>空调</a></li>
+                        <li><a>小家电</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <a href="#">手机</a>
+                    <ul>
+                        <li><a>OPPO</a></li>
+                        <li><a>华为</a></li>
+                        <li><a>VIVO</a></li>
+                        <li><a>其他</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <a href="#">服装</a>
+                    <ul>
+                        <li><a>男装</a></li>
+                        <li><a>女装</a></li>
+                        <li><a>童装</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <a href="#">百货</a>
+                    <ul>
+                        <li><a>1</a></li>
+                        <li><a>2</a></li>
+                        <li><a>3</a></li>
+                        <li><a>4</a></li>
+                        <li><a>4</a></li>
+
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <article>
+        <div>
+            <fieldset>
+                <legend>招财猫</legend>
+                <div>
+                    <div class="f-p">
+                        <a><img src="招财猫.webp"></a>
+                        <div class="f-d"><a>猫1</a></div>
+                    </div>
+                    <div class="f-p"><a><img src="招财猫.webp"></a>
+                        <div class="f-d"><a>猫2</a></div>
+                    </div>
+                    <div class="f-p"><a><img src="招财猫.webp"></a>
+                        <div class="f-d"><a>猫3</a></div>
+                    </div>
+                    <div class="f-p"><a><img src="招财猫.webp"></a>
+                        <div class="f-d"><a>猫4</a></div>
+                    </div>
+                 </div>
+                <div class="f-a"><a>进入专卖店>></a></div>
+            </fieldset>
+        </div>
+        <div>
+            <fieldset>
+                <legend>招财猫</legend>
+                <div>
+                    <div class="f-p"><a><img src="招财猫.webp"></a>
+                        <div class="f-d"><a>猫1</a></div>
+                    </div>
+                    <div class="f-p"><a><img src="招财猫.webp"></a>
+                        <div class="f-d"><a>猫2</a></div>
+                    </div>
+                    <div class="f-p"><a><img src="招财猫.webp"></a>
+                        <div class="f-d"><a>猫3</a></div>
+                    </div>
+                    <div class="f-p"><a><img src="招财猫.webp"></a>
+                        <div class="f-d"><a>猫4</a></div>
+                    </div>
+                </div>
+                <div class="f-a"><a>进入专卖店>></a></div>
+            </fieldset>
+        </div>
+        <div>
+            <fieldset>
+                <legend>招财猫</legend>
+                <div>
+                    <div class="f-p"><a><img src="招财猫.webp"></a>
+                        <div class="f-d"><a>猫1</a></div>
+                    </div>
+                    <div class="f-p"><a><img src="招财猫.webp"></a>
+                        <div class="f-d"><a>猫2</a></div>
+                    </div>
+                    <div class="f-p"><a><img src="招财猫.webp"></a>
+                        <div class="f-d"><a>猫3</a></div>
+                    </div>
+                    <div class="f-p"><a><img src="招财猫.webp"></a>
+                        <div class="f-d"><a>猫4</a></div>
+                    </div>
+                </div>
+                <div class="f-a"><a>进入专卖店>></a></div>
+            </fieldset>
+        </div>
+    </article>
+    <div class="problem">
+        <div class="top">?</div>
+        <div class="bottom"><a>问题反馈</a></div>
+    </div>
+</body>
+</html>

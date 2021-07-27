@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>成绩单</title>
+    <style>
+        header,article{
+            width: 80%;
+            margin: 0 auto;
+        }
+        article .t1 thead{
+            background-color: #999999;
+
+        }
+        article div{
+            margin-top: 40px;
+        }
+        .text-center{
+            text-align: center;
+        }
+        .text-red{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div style="font-size: 14px;text-indent: 2em;">信息科学与技术学院</div>
+        <hr>
+    </header>
+    <article>
+        <div>
+            <h1 style="text-align: center  ; ">C语言设计</h1>
+<!--            表格大小 表格内部距离 表格边框距离 边框大小 表格居中-->
+            <table class="t1" width="60%" cellpadding="5" cellspacing="2" border="1px" align="center">
+<!--                标题-->
+                <caption style="text-align: right;font-size: 14px ;color: #999999">班级：</caption>
+<!--                表头-->
+                <thead>
+                    <tr>
+                        <th>学号</th>
+                        <th>姓名</th>
+                        <th>成绩</th>
+                        <th>备注</th>
+                    </tr>
+                </thead>
+<!--                表尾-->
+                <tfoot>
+                    <tr>
+                        <td colspan="2">总人数：</td>
+                        <td colspan="2">考试人数：</td>
+                    </tr>
+                </tfoot>
+<!--                表格主体内容-->
+                <tbody>
+                    <tr>
+                        <td>190001</td>
+                        <td>张1</td>
+                        <td>83</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>190002</td>
+                        <td>张2</td>
+                        <td class="text-red">42</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>190003</td>
+                        <td>张3</td>
+                        <td></td>
+                        <td>缓考</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <table width="60%" cellpadding="5" cellspacing="0" border="1px" align="center">
+                <caption style="margin-bottom: 10px">成绩统计</caption>
+                <tbody>
+                    <tr>
+                        <td>总人数</td>
+                        <td class="text-center">6</td>
+                        <td>考试人数</td>
+                        <td class="text-center">5</td>
+                        <td>缺考</td>
+                        <td class="text-center">1</td>
+                    </tr>
+                    <tr>
+                        <td>最高分</td>
+                        <td colspan="2"></td>
+                        <td>最低分</td>
+                        <td colspan="2"></td>
+                    </tr>
+                    <tr>
+                        <td>平均分：</td>
+                        <td colspan="5"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </article>
+
+    <footer></footer>
+</body>
+</html>

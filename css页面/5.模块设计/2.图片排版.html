@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片 排版</title>
+    <style>
+        .out,.wall{
+            /*text-align: center;*/
+            width: 650px;
+            height: 460px;
+            padding: 30px;
+            background-color: #666666;
+            margin:30px 0;
+            border: 1px solid black;
+
+        }
+        /*相对定位*/
+        .in{
+
+            width: 590px;
+            height: 400px;
+            background-color: red;
+            position: relative;
+            margin:30px auto;
+        }
+        /*绝对定位*/
+        a{
+            position: absolute;
+        }
+        /*设置图片的大小*/
+        img{
+            width: 150px;
+            height: 180px;
+            border-radius: 10px;
+        }
+        /*设置每一个图片的偏移量*/
+        .in a:nth-child(2){
+            left: 110px;
+            top:110px;
+            z-index: 2;
+
+        }
+        .in a:nth-child(3){
+            left: 220px;
+            top:220px;
+            z-index: 3;
+        }
+        .in a:nth-child(4){
+            left: 330px;
+            top:110px;
+            z-index: 2;
+        }
+        .in a:nth-child(5){
+            left: 440px;
+        }
+        .in a:nth-child(5){
+
+        }
+        /*标题居中*/
+        .in span{
+            position: absolute;
+            z-index: 4;
+            display: block;
+            color: white;
+            font-size: 35px;
+            left: 242.5px;
+        }
+
+    /*    多图背景*/
+        .wall div{
+            width:590px ;
+            height: 400px;
+            text-align: center;
+            /*背景的使用*/
+            background: url("招财猫.webp")  no-repeat 220px 220px/150px 180px,
+                        url("招财猫.webp")  no-repeat 110px 110px/150px 180px,
+                        url("招财猫.webp")  no-repeat 0 0/150px 180px,
+                        url("招财猫.webp")  no-repeat 330px 110px/150px 180px,
+                        url("招财猫.webp")  no-repeat 440px 0/150px 180px
+                        ;
+            margin: 30px auto;
+            font-size: 35px;
+            color: white;
+            font-family: "华文行楷";
+        }
+    </style>
+</head>
+<body>
+    <div class="out">
+        <div class="in">
+            <span>招财猫</span>
+            <a><img src="招财猫.webp"></a>
+            <a><img src="招财猫.webp"></a>
+            <a><img src="招财猫.webp"></a>
+            <a><img src="招财猫.webp"></a>
+            <a><img src="招财猫.webp"></a>
+        </div>
+    </div>
+    <div class="wall">
+        <div>招财猫</div>
+    </div>
+</body>
+</html>
